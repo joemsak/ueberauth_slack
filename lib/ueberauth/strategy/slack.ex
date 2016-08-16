@@ -219,6 +219,7 @@ defmodule Ueberauth.Strategy.Slack do
             set_errors!(conn, [error("token", "unauthorized")])
           { :ok, %OAuth2.Response{status_code: status_code, body: team} } when status_code in 200..399 ->
             if team["ok"] do
+              IO.inspect team
               put_private(conn, :slack_team, team["team"])
             else
               set_errors!(conn, [error(team["error"], team["error"])])
