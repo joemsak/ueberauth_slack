@@ -64,7 +64,6 @@ defmodule Ueberauth.Strategy.Slack do
       |> store_token(token)
       |> fetch_auth(token)
       |> fetch_user(token)
-      |> fetch_team(token)
     end
   end
 
